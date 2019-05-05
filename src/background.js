@@ -158,7 +158,7 @@ function notify(message, sender) {
         gettingItem.then(refreshAsync, onError);
     }
 
-    if(message.kind=='theme-color') {
+    if(message.kind=='theme-color' && message.value) {
         let themeProposal = util_themePackage(util_hexToRgb(message.value));
         //console.log('Setting index ' + message.value + ' from next page..');
         pendingApplyColor = themeProposal.colors;

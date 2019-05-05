@@ -17,9 +17,10 @@ console.log('meta:' + document.getElementById('theme-color').getAttribute('conte
 */
 
 
+const themeColor = document.querySelector('meta[name=theme-color]');
 var metaData = {
   kind  : 'theme-color',
-  value :  document.querySelector('meta[name=theme-color]').getAttribute('content')
+  value :  themeColor ? themeColor.getAttribute('content') : null
 }
 
 browser.runtime.sendMessage(metaData);
