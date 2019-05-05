@@ -216,12 +216,18 @@ function util_themePackage(color) {
       textC=0;
   }
 
+  const backgroundColor = `rgba(${color.r}, ${color.g}, ${color.b}, 1)`;
+  const textColor = `rgb(${textC}, ${textC}, ${textC})`;
   let colorObject = {
-    accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
-    textcolor   : 'rgb('+textC+','+textC+','+textC+')',
-    toolbar     : 'rgb('+color.r+','+color.g+','+color.b+')',
-    tab_line    : 'rgb('+textC+','+textC+','+textC+')',
-    toolbar_bottom_separator : 'rgb('+color.r+','+color.g+','+color.b+')'
+    sidebar: backgroundColor,
+    sidebar_text: textColor,
+    sidebar_highlight: backgroundColor,
+    sidebar_highlight_text: textColor,
+    accentcolor : backgroundColor,
+    textcolor   : textColor,
+    toolbar     : backgroundColor,
+    tab_line    : textColor,
+    toolbar_bottom_separator : backgroundColor
   };
 
   let themeProposal = {
