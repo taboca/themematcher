@@ -223,8 +223,8 @@ function util_themePackage(color) {
     sidebar_text: textColor,
     sidebar_highlight: backgroundColor,
     sidebar_highlight_text: textColor,
-    accentcolor : backgroundColor,
-    textcolor   : textColor,
+    frame : backgroundColor,
+    tab_background_text   : textColor,
     toolbar     : backgroundColor,
     tab_line    : textColor,
     toolbar_bottom_separator : backgroundColor
