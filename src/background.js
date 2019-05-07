@@ -157,7 +157,7 @@ function notify(message, sender) {
         gettingItem.then(refreshAsync, onError);
     }
 
-    if(message.kind=='theme-color') {
+    if(message.kind=='theme-color' && message.value) {
         let themeProposal = util_themePackage(util_hexToRgb(message.value));
         //console.log('Setting index ' + message.value + ' from next page..');
         pendingApplyColor = themeProposal.colors;
@@ -217,12 +217,18 @@ function util_themePackage(color) {
   // http://stackoverflow.com/a/3943023/112731
   let textC = (color.r * 0.299 + color.g * 0.587 + color.b * 0.114) > 186 ? 0 : 255;
 
+  const backgroundColor = `rgba(${color.r}, ${color.g}, ${color.b}, 1)`;
+  const textColor = `rgb(${textC}, ${textC}, ${textC})`;
   let colorObject = {
-    accentcolor : 'rgb('+color.r+','+color.g+','+color.b+')',
-    textcolor   : 'rgb('+textC+','+textC+','+textC+')',
-    toolbar     : 'rgb('+color.r+','+color.g+','+color.b+')',
-    tab_line    : 'rgb('+textC+','+textC+','+textC+')',
-    toolbar_bottom_separator : 'rgb('+color.r+','+color.g+','+color.b+')'
+    sidebar: backgroundColor,
+    sidebar_text: textColor,
+    sidebar_highlight: backgroundColor,
+    sidebar_highlight_text: textColor,
+    frame : backgroundColor,
+    tab_background_text   : textColor,
+    toolbar     : backgroundColor,
+    tab_line    : textColor,
+    toolbar_bottom_separator : backgroundColor
   };
 
   let themeProposal = {
